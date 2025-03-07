@@ -60,5 +60,62 @@ class Funcionario{
 
 }
 
+// import 'package:ativ3/ativ3.dart' as nada;
+// import 'dart:io';
+// void main() {
+//   nada.nada(); // teste da lib
+//   print("${nada.linhazinha()}Programa de funcionarios${nada.linhazinha()}");
+//   nada.nada();
+
+  
+
+//   print("Escreva o Id do funcionario: ");
+//   int? id = int.tryParse(stdin.readLineSync().toString());
+//   print("Funcionario selecionado: id $id!");
+//   nada.nada;
+//   print("Escreva o Nome do funcionario: ");
+//   String? nome = stdin.readLineSync().toString();
+//   nada.nada;
+//   print("Escreva o Cargo do funcionario: ");
+//   String? cargo = stdin.readLineSync().toString();
+
+//   Funcionario funcionario1 = Funcionario(id, nome, cargo);
+//   print("${funcionario1.id}");
+
+
+//   Empresa empresa1 = Empresa();
+//   empresa1.adicionarFuncionario(int.parse(id.toString()), nome, cargo, 1000);
+//   print(empresa1.funcionariosdaempresa);
+
+// }
+
+
+// class Funcionario{
+
+//   final int? id;
+//   String nome;
+//   String cargo;
+
+//   Funcionario(this.id, this.nome, this.cargo);
+
+  
+
+
+// }
+
+
+// class Empresa{
+
+//    List<List<dynamic>> funcionariosdaempresa = [];
+
+
+//    void adicionarFuncionario(int id, String nome, String cargo, double salario) {
+//     funcionariosdaempresa.add([id, nome, cargo, salario]);
+//    }
+
+
+// }
+
+
 
 
