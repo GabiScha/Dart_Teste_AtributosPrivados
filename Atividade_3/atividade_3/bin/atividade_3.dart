@@ -1,143 +1,152 @@
-import 'package:atividade_3/atividade_3.dart' as atividade_3;
+import 'package:ativ3/ativ3.dart' as nada;
 import 'dart:io';
+void main() {
+  nada.nada(); // teste da lib
+  print("${nada.linhazinha()}Programa de funcionarios${nada.linhazinha()}");
+  nada.nada();
 
-void main(List<String> arguments) {
-  void enter() {
-    stdin.readLineSync();
+  Empresa empresa1 = Empresa();
+
+  print("Pressione [ENTER] para continuar e 0 para sair.");
+  String menu = stdin.readLineSync().toString();
+
+  while (menu != "0"){
+
+    print("1 - Adicionar Funcionario \n2 - Remover Funcionario\n3 - Listar Todos os Funcionários \n4 - Listar os dados de um funcionário específico ");
+    String opcao = stdin.readLineSync().toString();
+
+        if (opcao == "1"){
+          print("Digite o nome do Funcionario: ");
+          Funcionario funcionario = Funcionario();
+          String nome = stdin.readLineSync().toString();
+          funcionario.setNome = nome;
+          print("Digite o cargo do Funcionario: ");
+          String cargo = stdin.readLineSync().toString();
+          funcionario.setCargo = cargo;
+          print("Digite o Salario do Funcionario: ");
+          String salario = stdin.readLineSync().toString();
+          funcionario.setSalario = double.parse(salario);
+          empresa1.adicionarFuncionario(funcionario.getNome, funcionario.getCargo, funcionario.getSalario);
+        } else if (opcao == "2"){
+          empresa1.removerFuncionario();
+        } else if (opcao == "3"){
+          empresa1.listarFuncionarios();
+        }else if (opcao == "4"){
+          empresa1.listarFuncionarioEspecifico();
+        }
+
+
+  menu = stdin.readLineSync().toString();
   }
+
+  print("Obrigada por Utilizar meu programa! - Desenvolvido por GabiScha - ");
+
+
+
+// empresa1.listarFuncionarioEspecifico();
+
+
+
+
+  // print("Digite o nome do Funcionario: ");
+  // Funcionario funcionario = Funcionario();
+  // String nome = stdin.readLineSync().toString();
+  // funcionario.setNome = nome;
+  // print("Digite o cargo do Funcionario: ");
+  // String cargo = stdin.readLineSync().toString();
+  // funcionario.setCargo = cargo;
+  // print("Digite o Salario do Funcionario: ");
+  // String salario = stdin.readLineSync().toString();
+  // funcionario.setSalario = double.parse(salario);
+  // empresa1.adicionarFuncionario(funcionario.getNome, funcionario.getCargo, funcionario.getSalario);
+
   
-  print('--- Classe Funcionario e Empresa ---');
-  print(' ');
-  print('Nome do funcionario:');
-  
-  String? nome = stdin.readLineSync();
-  print('Funcionário selecionado: $nome');
-  print('Pressione [ENTER] para inserir os outros dados. . .');
-  enter();
-  print('Nome do funcionario:');
-  String? id = stdin.readLineSync();
 
 
+  // print("Digite o nome do Funcionario: ");
+  // nome = stdin.readLineSync().toString();
+  // funcionario.setNome = nome;
+  // print("Digite o cargo do Funcionario: ");
+  // cargo = stdin.readLineSync().toString();
+  // funcionario.setCargo = cargo;
+  // print("Digite o Salario do Funcionario: ");
+  // salario = stdin.readLineSync().toString();
+  // funcionario.setSalario = double.parse(salario);
+  // empresa1.adicionarFuncionario(funcionario.getNome, funcionario.getCargo, funcionario.getSalario);
 
-  Funcionario funcionario1 = Funcionario();
-  funcionario1.setNome = nome;
-  funcionario1.setId = id;
-  print(funcionario1.getNome);
-   print(funcionario1.getId);
-
-  funcionario1.MostrarDados();
+  // empresa1.listarFuncionarios();
 
 }
+
 
 class Funcionario{
-  final funcionario = [0,'', '', 0];
-  String _nome = "";
-  int _id = 0;
+late String _nome;
+late String _cargo;
+late double _salario;
 
-  get getId{
-    funcionario[0] = _id;
-    return _id;
+//gets e sets
+
+get getSalario => _salario;
+get getNome => _nome;
+get getCargo => _cargo;
+
+
+set setSalario(double salario){
+  _salario = salario;
+}
+set setNome(String nome){
+  _nome = nome;
+}
+set setCargo(String cargo){
+  _cargo = cargo;
+}
+
+
+}
+
+class Empresa{
+
+    List<List<dynamic>> funcionariosdaempresa = [];
+    int _proximoId = 1;
+
+    // Metodo adicionar funcionario
+    void adicionarFuncionario(String nome, String cargo, double salario) {
+    funcionariosdaempresa.add([_proximoId, nome, cargo, salario]);
+    _proximoId++;
+   }
+
+    // Metodo remover funcionario
+
+    void removerFuncionario() {
+    print("Digite o Id do Funcionario que deseja remover: ");
+    String id = stdin.readLineSync().toString();
+    funcionariosdaempresa.removeWhere((funcionario) => funcionario[0] == id);
   }
 
-  set setId(id)
-  {
-    _id = id;
+    // Metodo Listar funcionarios
+
+    void listarFuncionarios() {
+    for (var funcionario in funcionariosdaempresa) {
+      print(funcionario);
+    }
   }
 
-  get getNome{
-    funcionario[1] = _nome;
-    return _nome;
-  }
+    // Mostrar informações do funcionario selecionado
 
-  set setNome(nome)
-  {
-    _nome = nome;
-  }
-
-  void MostrarDados(){
-    print(funcionario[1]);
+  void listarFuncionarioEspecifico() {
+    print("Digite o Id do Funcionario: ");
+    String id = stdin.readLineSync().toString();
+    for (var funcionario in funcionariosdaempresa) {
+      if (funcionario[0] == id) {
+        print("Nome: ${funcionario[1]} - Cargo: ${funcionario[2]} - Salário: R${funcionario[3].toString()}");
+        return;
+      }
+    }
+    print("Funcionário com ID $id não encontrado.");
   }
 
 }
 
-// import 'package:ativ3/ativ3.dart' as nada;
-// import 'dart:io';
-// void main() {
-//   nada.nada(); // teste da lib
-//   print("${nada.linhazinha()}Programa de funcionarios${nada.linhazinha()}");
-//   nada.nada();
-
-  
-
-//   print("Escreva o Id do funcionario: ");
-//   int? id = int.tryParse(stdin.readLineSync().toString());
-//   print("Funcionario selecionado: id $id!");
-//   nada.nada;
-//   print("Escreva o Nome do funcionario: ");
-//   String? nome = stdin.readLineSync().toString();
-//   nada.nada;
-//   print("Escreva o Cargo do funcionario: ");
-//   String? cargo = stdin.readLineSync().toString();
-
-//   Funcionario funcionario1 = Funcionario(id, nome, cargo);
-//   print("${funcionario1.id}");
-
-
-//   Empresa empresa1 = Empresa();
-//   empresa1.adicionarFuncionario(int.parse(id.toString()), nome, cargo, 1000);
-//   print(empresa1.funcionariosdaempresa);
-
-// }
-
-
-// class Funcionario{
-// late final int _id;
-// late final String _nome;
-// late final String _cargo;
-// late final double _salario;
-
-// //gets e sets
-
-// get getSalario => _salario;
-// get getId => _id;
-// get getNome => _nome;
-// get getCargo => _cargo;
-
-
-// set setSalario(double salario){
-//   _salario = salario;
-// }
-// set setNome(String nome){
-//   _nome = nome;
-// }
-// set setCargo(String cargo){
-//   _cargo = cargo;
-// }
-
-
-// }
-
-// class Empresa{
-
-//    List<List<dynamic>> funcionariosdaempresa = [];
-
-//     // Metodo adicionar funcionario
-//    void adicionarFuncionario(int id, String nome, String cargo, double salario) {
-//     funcionariosdaempresa.add([id, nome, cargo, salario]);
-//    }
-
-//     // Metodo remover funcionario
-
-
-//     // Metodo Listar funcionarios
-
-
-//     // Mostrar informações do funcionario selecionado
-
-// }
-
-// //Aumentar salario?
-
-
+//Aumentar salario?
 
 
