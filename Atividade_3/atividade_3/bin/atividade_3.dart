@@ -121,13 +121,22 @@ class Funcionario{
 
 //    List<List<dynamic>> funcionariosdaempresa = [];
 
-
+//     // Metodo adicionar funcionario
 //    void adicionarFuncionario(int id, String nome, String cargo, double salario) {
 //     funcionariosdaempresa.add([id, nome, cargo, salario]);
 //    }
 
+//     // Metodo remover funcionario
+
+
+//     // Metodo Listar funcionarios
+
+
+//     // Mostrar informações do funcionario selecionado
 
 // }
+
+// //Aumentar salario?
 
 
 
