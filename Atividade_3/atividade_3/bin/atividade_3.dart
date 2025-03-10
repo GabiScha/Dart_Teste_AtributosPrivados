@@ -91,18 +91,31 @@ class Funcionario{
 
 
 // class Funcionario{
+// late final int _id;
+// late final String _nome;
+// late final String _cargo;
+// late final double _salario;
 
-//   final int? id;
-//   String nome;
-//   String cargo;
+// //gets e sets
 
-//   Funcionario(this.id, this.nome, this.cargo);
+// get getSalario => _salario;
+// get getId => _id;
+// get getNome => _nome;
+// get getCargo => _cargo;
 
-  
+
+// set setSalario(double salario){
+//   _salario = salario;
+// }
+// set setNome(String nome){
+//   _nome = nome;
+// }
+// set setCargo(String cargo){
+//   _cargo = cargo;
+// }
 
 
 // }
-
 
 // class Empresa{
 
