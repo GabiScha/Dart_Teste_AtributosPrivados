@@ -1,10 +1,10 @@
-name: atividade_3
+name: ativ3
 description: A sample command-line application.
 version: 1.0.0
 # repository: https://github.com/my_org/my_repo
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.7.0
 
 # Add regular dependencies here.
 dependencies:
